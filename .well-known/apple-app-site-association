@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6UDH8LKT8H.com.brighten.suwonbook",
+        "paths": [
+          "*"
+        ]
+      },
+      {
+        "appID": "6UDH8LKT8H.com.brighten.suwonbook.dev",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  }
+}

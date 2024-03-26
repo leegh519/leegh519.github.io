@@ -1,18 +1,10 @@
 {
   "applinks": {
-    "apps": [],
-    "details": [
+      "apps": [],
+      "details": [
       {
-        "appID": "76MVH4459Y.com.brighten.suwonbook",
-        "paths": [
-          "*"
-        ]
-      },
-      {
-        "appID": "76MVH4459Y.com.brighten.suwonbook.dev",
-        "paths": [
-          "*"
-        ]
+        "appID": "76MVH4459Y.com.example.deeplinkCookbuk",
+        "paths": ["*"]
       }
     ]
   }

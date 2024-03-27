@@ -1,44 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>
-</head>
-<body>
+<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // 안드로이드인 경우
-    if (/android/i.test(userAgent)) {
-        var androidLink = "https://play.google.com/store/apps/details?id=com.brighten.church";
-        createAndClickLink(androidLink);
-    }
-    // iOS인 경우
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        var iOSLink = "https://apps.apple.com/kr/app/%EB%B3%B8%EB%8B%B9%EC%88%98%EC%B2%A9/id1519715996";
-        createAndClickLink(iOSLink);
-    }
+<META property="og:title" CONTENT="[본당수첩] 카페로 초대합니다">
+<META property="og:description" CONTENT="본당수첩 카페로 초대합니다">
+<META property="og:image" CONTENT="https://pocketchurch.co.kr/assets/images/_user/landing/logo2_renewal.png" />
+<title></title>
+<script type="text/javascript">
 
-    // 링크 생성 및 클릭
-    function createAndClickLink(link) {
-        var aTag = document.createElement('a');
-        aTag.href = link;
-        aTag.target="_top";
-        document.body.appendChild(aTag);
-        
-        // 링크를 클릭하는 함수
-        function clickLink() {
-            aTag.click();
-        }
+function mo_chk(){
 
-        // 페이지 로드 후 바로 링크 클릭
-        clickLink();
-    }
-});
+	var os;
+
+	var mobile = (/iphone|ipad|ipod|android/i.test(navigator.userAgent.toLowerCase()));	 
+
+	if (mobile) {
+		var userAgent = navigator.userAgent.toLowerCase();
+		if (userAgent.search("android") > -1){
+			return os = "android";
+		}else if ((userAgent.search("iphone") > -1) || (userAgent.search("ipod") > -1) || (userAgent.search("ipad") > -1)){
+			return os = "ios";
+		}else{
+			return os = "otehr";
+		}
+
+	} else {
+		return os = "pc";
+	}
+}
+
+function action_app(){
+	
+	var result_mo_chk = mo_chk();
+
+	var nowLink = window.location.href;
+	var linkArray = nowLink.split("?");
+	var deepLink = "pocketchurch://leegh519.github.io/cafe/invite/3";
+
+	
+	location.href = deepLink;
+	
+	if(result_mo_chk!="pc"){
+
+		if(result_mo_chk == "ios")
+		{
+			setTimeout(function () {
+				isExe_ios();
+			}, 1000); 
+		}
+		else
+		{		
+			setTimeout(function () {
+				isExe_android();
+			}, 1000); 
+		}
+	}
+}
+
+function isExe_android()
+{
+	 if (!document.webkitHidden || !document.hidden) 
+	 {
+		deepLink = "market://launch?id=com.brighten.church";
+		location.replace(deepLink);	
+	 }
+}
+
+function isExe_ios()
+{
+	 if (!document.webkitHidden || !document.hidden) 
+	 {
+		location.href = "https://apps.apple.com/kr/app/%EB%B3%B8%EB%8B%B9%EC%88%98%EC%B2%A9/id1519715996";
+	 }
+}
 </script>
+</head>
+<style>
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select {
+	margin: 0; padding: 0
+		
+}
+img{border:0; vertical-align:top}
+</style>
+<body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
+    <script type="text/javascript">
+        var nowLink = window.location.href;
+        var linkArray = nowLink.split("?");
+        var deepLink = "pocketchurch://leegh519.github.io/cafe/invite/3";
+		
+        document.getElementById('deepLink').setAttribute('href', deepLink);
+		
+
+		if (mo_chk() == "ios")
+		{
+			setTimeout(function () {
+				action_app();
+			}, 1000);
+		}
+		else {
+
+			setTimeout(function () {
+				location.replace(deepLink);
+			}, 1000);
+
+		}
+		
+    </script>
 </body>
 </html>

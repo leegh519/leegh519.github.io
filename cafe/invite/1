@@ -1,4 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+</head>
+<body>
 
-efw
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // 안드로이드인 경우
+    if (/android/i.test(userAgent)) {
+        var androidLink = "market://details?id=com.brighten.church";
+        createAndClickLink(androidLink);
+    }
+    // iOS인 경우
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        var iOSLink = "https://apps.apple.com/kr/app/%EB%B3%B8%EB%8B%B9%EC%88%98%EC%B2%A9/id1519715996";
+        createAndClickLink(iOSLink);
+    }
+
+    // 링크 생성 및 클릭
+    function createAndClickLink(link) {
+        var aTag = document.createElement('a');
+        aTag.href = link;
+        aTag.textContent = "클릭해주세요!";
+        document.body.appendChild(aTag);
+        
+        // 링크를 클릭하는 함수
+        function clickLink() {
+            aTag.click();
+        }
+
+        // 페이지 로드 후 바로 링크 클릭
+        clickLink();
+    }
+});
+</script>
+
+</body>
 </html>

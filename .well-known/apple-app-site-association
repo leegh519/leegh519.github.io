@@ -3,8 +3,16 @@
       "apps": [],
       "details": [
       {
-        "appID": "76MVH4459Y.com.brighten.suwonbook",
-        "paths": ["*"]
+        "appIDs": [
+            "76MVH4459Y.com.brighten.suwonbook",
+            "76MVH4459Y.com.brighten.suwonbook.dev"
+        ],
+        "components": [
+            {
+                "/": "/cafe/*",
+                "comment": "Matches any URL with a path that starts with /cafe/."
+            }
+        ]
       }
     ]
   }

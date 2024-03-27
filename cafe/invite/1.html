@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // 안드로이드인 경우
     if (/android/i.test(userAgent)) {
-        var androidLink = "market://details?id=com.brighten.church";
+        var androidLink = "https://play.google.com/store/apps/details?id=com.brighten.church";
         createAndClickLink(androidLink);
     }
     // iOS인 경우
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function createAndClickLink(link) {
         var aTag = document.createElement('a');
         aTag.href = link;
+        aTag.target="_top";
         document.body.appendChild(aTag);
         
         // 링크를 클릭하는 함수
